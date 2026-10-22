@@ -332,6 +332,75 @@
   .sched-chart-legend .ln::after{content:'';position:absolute;right:0;top:-2px;width:6px;height:6px;border-radius:50%;background:var(--rev-navy);}
   .sched-month-active{font-size:10.8px;color:var(--rev-blue);font-weight:700;cursor:pointer;}
   .ukv span{white-space:nowrap;margin-right:12px;} .ukv b{text-align:right;}
+  /* ---- Shipment impacts & open items ---- */
+  .imp-panel{background:var(--rev-panel);border:1px solid var(--rev-border);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow);}
+  .imp-intro{font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0 0 16px;max-width:760px;}
+  .imp-sum{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+  .imp-sum .t{flex:1;min-width:150px;border:1px solid var(--rev-border);border-radius:10px;padding:11px 14px;background:#F8FAFC;}
+  .imp-sum .t b{display:block;font-size:22px;color:var(--rev-navy);line-height:1.1;}
+  .imp-sum .t span{font-size:11.5px;color:var(--text-muted);font-weight:600;}
+  .imp-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .imp-chip{border:1px solid var(--rev-border);background:#fff;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:700;color:var(--text-muted);cursor:pointer;font-family:inherit;}
+  .imp-chip.active{background:var(--rev-navy);border-color:var(--rev-navy);color:#fff;}
+  .imp-list{display:flex;flex-direction:column;gap:12px;}
+  .imp-card{display:grid;grid-template-columns:5px 1fr;border:1px solid var(--rev-border);border-radius:12px;overflow:hidden;background:#fff;}
+  .imp-card .bar{background:var(--ic,#64748B);}
+  .imp-card .in{padding:14px 18px 15px;}
+  .imp-card.resolved{opacity:.72;}
+  .imp-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:6px;}
+  .imp-pill{font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;color:var(--ic);background:var(--ib);}
+  .imp-st{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:#E2E8F0;color:#334155;}
+  .imp-st.open{background:#FEF3C7;color:#92400E;} .imp-st.wait{background:#DCE8F7;color:#1B3B6F;} .imp-st.done{background:#DCFCE7;color:#166534;}
+  .imp-title{font-size:15px;font-weight:800;color:var(--rev-navy);margin:0 0 4px;}
+  .imp-detail{font-size:13px;color:var(--text);line-height:1.55;margin:0 0 10px;white-space:pre-line;}
+  .imp-meta{display:flex;gap:6px 22px;flex-wrap:wrap;font-size:12px;color:var(--text-muted);}
+  .imp-meta b{color:var(--text);font-weight:700;}
+  .imp-meta .due-over{color:#B91C1C;font-weight:800;} .imp-meta .due-soon{color:#B45309;font-weight:800;}
+  .imp-days{font-weight:800;color:#B45309;}
+  .imp-flag{display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:10.5px;font-weight:800;color:#92400E;background:#FEF3C7;border-radius:999px;padding:2px 8px;vertical-align:middle;white-space:nowrap;}
+  .imp-fleet{display:inline-block;margin-top:10px;font-size:11.5px;font-weight:800;color:#92400E;background:#FEF3C7;border-radius:999px;padding:3px 10px;cursor:pointer;}
+  .uimp{border:1px solid #F5D9A5;background:#FFFBEB;border-radius:12px;padding:12px 14px;margin:-4px 0 16px;}
+  .uimp h5{margin:0 0 8px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#92400E;}
+  .uimp .u1{padding:8px 0;border-top:1px solid #F5E3BE;} .uimp .u1:first-of-type{border-top:0;padding-top:0;}
+  .uimp .u1 b{display:block;font-size:13px;color:var(--rev-navy);} .uimp .u1 span{font-size:12px;color:var(--text);line-height:1.5;display:block;margin-top:2px;}
+  .uimp .u1 em{font-style:normal;font-size:11.5px;color:var(--text-muted);display:block;margin-top:3px;}
+
+  .imp-more{display:block;margin:14px auto 0;border:1px solid var(--rev-border);background:#fff;border-radius:999px;padding:7px 18px;font-size:12.5px;font-weight:800;color:var(--rev-navy);cursor:pointer;font-family:inherit;}
+
+  .cv-status-pill.click{cursor:pointer;} .cv-status-pill.click:hover{filter:brightness(.96);box-shadow:0 0 0 2px rgba(180,83,9,.18);}
+  .wch-back{position:fixed;inset:0;background:rgba(7,26,51,.55);z-index:400;display:none;align-items:center;justify-content:center;padding:20px;}
+  .wch-back.open{display:flex;}
+  .wch{background:#fff;border-radius:16px;max-width:760px;width:100%;max-height:86vh;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(7,26,51,.35);overflow:hidden;}
+  .wch-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 22px 12px;border-bottom:1px solid var(--rev-border);}
+  .wch-h h3{margin:0;font-size:17px;color:var(--rev-navy);} .wch-h p{margin:4px 0 0;font-size:12.5px;color:var(--text-muted);line-height:1.5;}
+  .wch-x{border:1px solid var(--rev-border);background:#fff;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:16px;color:var(--text-muted);}
+  .wch-b{padding:14px 22px 20px;overflow:auto;}
+  .wch-b table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px;}
+  .wch-b th{background:#F1F5F9 !important;color:#475569 !important;text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--rev-border);}
+  .wch-b td{padding:8px;border-bottom:1px solid #EEF2F7;} .wch-b tr.wu{cursor:pointer;} .wch-b tr.wu:hover td{background:#F8FAFC;}
+  .wch-late{font-weight:800;color:#B45309;}
+  .wch-note{border:1px solid #F5D9A5;background:#FFFBEB;border-radius:10px;padding:10px 12px;margin:10px 0;font-size:12.5px;line-height:1.5;}
+  .wch-note b{color:var(--rev-navy);display:block;}
+  .wch-go{margin-top:14px;display:inline-block;background:var(--rev-navy);color:#fff;border:0;border-radius:999px;padding:8px 18px;font-weight:800;font-size:12.5px;cursor:pointer;font-family:inherit;}
+
+  .cv-status-pill.click{cursor:pointer;} .cv-status-pill.click:hover{filter:brightness(.96);box-shadow:0 0 0 2px rgba(180,83,9,.18);}
+  .wch-back{position:fixed;inset:0;background:rgba(7,26,51,.55);z-index:400;display:none;align-items:center;justify-content:center;padding:20px;}
+  .wch-back.open{display:flex;}
+  .wch{background:#fff;border-radius:16px;max-width:760px;width:100%;max-height:86vh;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(7,26,51,.35);overflow:hidden;}
+  .wch-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 22px 12px;border-bottom:1px solid var(--rev-border);}
+  .wch-h h3{margin:0;font-size:17px;color:var(--rev-navy);} .wch-h p{margin:4px 0 0;font-size:12.5px;color:var(--text-muted);line-height:1.5;}
+  .wch-x{border:1px solid var(--rev-border);background:#fff;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:16px;color:var(--text-muted);}
+  .wch-b{padding:14px 22px 20px;overflow:auto;}
+  .wch-b table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px;}
+  .wch-b th{background:#F1F5F9 !important;color:#475569 !important;text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--rev-border);}
+  .wch-b td{padding:8px;border-bottom:1px solid #EEF2F7;} .wch-b tr.wu{cursor:pointer;} .wch-b tr.wu:hover td{background:#F8FAFC;}
+  .wch-late{font-weight:800;color:#B45309;}
+  .wch-note{border:1px solid #F5D9A5;background:#FFFBEB;border-radius:10px;padding:10px 12px;margin:10px 0;font-size:12.5px;line-height:1.5;}
+  .wch-note b{color:var(--rev-navy);display:block;}
+  .wch-go{margin-top:14px;display:inline-block;background:var(--rev-navy);color:#fff;border:0;border-radius:999px;padding:8px 18px;font-weight:800;font-size:12.5px;cursor:pointer;font-family:inherit;}
+
+  .cv-status-pill.late{background:var(--red-bg);color:var(--red);}
+  .cv-status-pill.click{box-shadow:inset 0 0 0 1px rgba(15,23,42,.06);}
 </style>
 <style id="hideInternal">
 /* Internal view hidden for now: delete this block to bring back the Internal tab */
@@ -376,6 +445,8 @@
       <svg class="cv-trend" id="cvTrendSvg"></svg>
       <div class="cv-trend-legend" id="cvTrendLegend"></div>
     </div>
+
+    <div style="background:#FEF3C7;color:#92400E;font-weight:700;font-size:12px;padding:8px 14px;border-radius:8px;margin:18px 0 0;">LAYOUT PREVIEW &mdash; the notices below are sample text, not real shipment impacts.</div><div id="cvImpactWrap"></div>
 
     <div class="cv-section-label">Unit Status</div>
     <div class="cv-toolbar">
@@ -519,6 +590,165 @@ const CV_RECORDS = RECORDS.filter(r=>r.unit!=='GCB-47A' && r.unit!=='GCB-48B');
 const CV_SERIAL = {};
 Object.keys(CV_RAIL).forEach(t=>CV_RAIL[t].forEach(u=>{ CV_SERIAL[t+'-'+u.serialNum] = u; }));
 
+/* ============================================================
+   SHIPMENT IMPACTS & OPEN ITEMS
+   Add one object per item to IMPACTS below. Leave the list empty and the section is hidden.
+   {
+     id:'IMP-001',
+     category:'schedule' | 'changeorder' | 'action' | 'changerequest' | 'material' | 'other',
+     title:'Short headline',
+     detail:'What is happening and why it affects shipment. Plain language.',
+     scope:{type:'FCB', units:[[31,35]]},      // type: 'ICB' | 'GCB' | 'FCB' | 'ALL';  units optional: numbers or [from,to] ranges
+     status:'Open' | 'Awaiting response' | 'Resolved',
+     waitingOn:'VoltaGrid',                    // who the next step is with (optional)
+     raised:'2026-10-10', needBy:'2026-10-24', // optional dates
+     impactDays:7,                             // estimated ship-date impact in days (optional)
+     reference:'CO-012'                        // change order / request number (optional)
+   }
+   ============================================================ */
+const IMPACTS = [
+{id:'S1',category:'schedule',title:'SAMPLE - Ship date moved for FCB-31 to FCB-35',detail:'SAMPLE TEXT ONLY. Example: planned ship dates for these units move out while an open item is resolved. Replace with the real reason.',scope:{type:'FCB',units:[[31,35]]},status:'Open',waitingOn:'Client',raised:'2026-10-12',needBy:'2026-10-22',impactDays:7,reference:'SAMPLE-1'},
+{id:'S2',category:'changeorder',title:'SAMPLE - Change order pending approval',detail:'SAMPLE TEXT ONLY. Example: work on these units is on hold until the change order is approved.',scope:{type:'GCB',units:[[200,228]]},status:'Awaiting response',waitingOn:'Client',raised:'2026-10-08',needBy:'2026-10-16',impactDays:10,reference:'SAMPLE-CO'},
+{id:'S3',category:'action',title:'SAMPLE - Client action item: confirm delivery details',detail:'SAMPLE TEXT ONLY.',scope:{type:'FCB',units:[[31,35]]},status:'Open',waitingOn:'Client',needBy:'2026-10-30'},
+{id:'S4',category:'material',title:'SAMPLE - Material status update',detail:'SAMPLE TEXT ONLY. Example: a component has a revised delivery date from the supplier.',scope:{type:'ICB',units:[[250,280]]},status:'Open',waitingOn:'Supplier',impactDays:5},
+{id:'S5',category:'changerequest',title:'SAMPLE - Client change request (resolved)',detail:'SAMPLE TEXT ONLY.',scope:{type:'ICB'},status:'Resolved',raised:'2026-09-20'}
+];
+const IMPACT_ASOF = '2026-10-21';
+const IMPACT_CATS = {
+  schedule:{label:'Schedule Impact',c:'#B45309',b:'#FEF3C7'},
+  changeorder:{label:'Change Order',c:'#6D28D9',b:'#EDE9FE'},
+  action:{label:'Client Action Item',c:'#1D4E89',b:'#DCE8F7'},
+  changerequest:{label:'Client Change Request',c:'#0F766E',b:'#CCFBF1'},
+  material:{label:'Material Status',c:'#0E7490',b:'#CFFAFE'},
+  other:{label:'Other Impact',c:'#475569',b:'#E2E8F0'}
+};
+const impEsc = x => String(x==null?'':x).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const impMon = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const impFmt = iso => { if(!iso) return ''; const [y,m,d]=iso.split('-'); return impMon[+m-1]+' '+(+d)+', '+y; };
+const impDays = iso => Math.round((new Date(iso+'T00:00:00')-new Date(IMPACT_ASOF+'T00:00:00'))/86400000);
+const impIsOpen = n => n.status!=='Resolved';
+function impMatches(n, rec){
+  const sc = n.scope || {type:'ALL'};
+  if(sc.type && sc.type!=='ALL' && sc.type!==rec.type) return false;
+  if(sc.units && sc.units.length){
+    const num = parseInt(rec.unit.split('-')[1],10);
+    return sc.units.some(u=> Array.isArray(u) ? (num>=u[0] && num<=u[1]) : num===u);
+  }
+  return true;
+}
+function impScopeLabel(n){
+  const sc = n.scope || {type:'ALL'};
+  if(sc.type==='ALL' || !sc.type) return 'Entire order';
+  if(!sc.units || !sc.units.length) return 'All '+sc.type+' units';
+  return sc.units.map(u=> Array.isArray(u) ? sc.type+'-'+u[0]+' to '+sc.type+'-'+u[1] : sc.type+'-'+u).join(', ');
+}
+const impFor = rec => rec.stage==='Shipped' ? [] : IMPACTS.filter(n=>impIsOpen(n) && impMatches(n,rec));  /* shipped units carry no open impacts */
+function impFlag(rec){ const k = impFor(rec).length; return k ? `<span class="imp-flag" title="This unit has an order note">${k===1?'Note':k+' notes'}</span>` : ''; }
+function impFleetBadge(t){
+  const k = IMPACTS.filter(n=>impIsOpen(n) && (!n.scope || n.scope.type==='ALL' || n.scope.type===t)).length;
+  return k ? `<div class="imp-fleet" data-imp-type="${t}">${k} order note${k>1?'s':''} &rsaquo;</div>` : '';
+}
+function impUnitPanel(rec){
+  const list = impFor(rec); if(!list.length) return '';
+  return `<div class="uimp"><h5>Order note</h5>${list.map(n=>{
+    const cat = IMPACT_CATS[n.category] || IMPACT_CATS.other;
+    return `<div class="u1"><b>${impEsc(cat.label)} &middot; ${impEsc(n.title)}</b><span>${impEsc(n.detail||'')}</span>
+      <em>${n.waitingOn?'Waiting on <b style="display:inline;font-size:inherit;">'+impEsc(n.waitingOn)+'</b>':''}${n.needBy?(n.waitingOn?' &middot; ':'')+'Needed by '+impFmt(n.needBy):''}${n.impactDays?' &middot; Est. impact +'+n.impactDays+' days':''}</em></div>`;
+  }).join('')}</div>`;
+}
+let impFilter = 'all', impType = null, impShowAll = false;
+function cvRenderImpacts(){
+  const wrap = document.getElementById('cvImpactWrap'); if(!wrap) return;
+  const ban = document.getElementById('cvImpactBanner');
+  if(!IMPACTS.length){ wrap.innerHTML=''; if(ban) ban.innerHTML=''; return; }
+  const _open = IMPACTS.filter(impIsOpen);
+  if(false){
+    if(!_open.length) ban.innerHTML='';
+    else {
+      const _aw = _open.filter(n=>n.status==='Awaiting response').length, _md = Math.max(0,..._open.map(n=>n.impactDays||0));
+      ban.innerHTML = `<div class="imp-banner" id="impBannerGo"><div class="ic">!</div><div class="tx"><b>${_open.length} open item${_open.length>1?'s':''}</b> may affect ship dates${_aw?` &middot; ${_aw} awaiting a response`:''}${_md?` &middot; largest estimated impact +${_md} days`:''}</div><div class="go">View details &darr;</div></div>`;
+      document.getElementById('impBannerGo').onclick = ()=>{ document.getElementById('cvImpactWrap').scrollIntoView({behavior:'smooth',block:'start'}); };
+    }
+  }
+  const open = IMPACTS.filter(impIsOpen);
+  const awaiting = open.filter(n=>n.status==='Awaiting response').length;
+  const days = open.map(n=>n.impactDays||0), maxDays = days.length?Math.max(...days):0;
+  const overdue = open.filter(n=>n.needBy && impDays(n.needBy)<0).length;
+  const cats = Object.keys(IMPACT_CATS).filter(k=>IMPACTS.some(n=>n.category===k));
+  let items = IMPACTS.filter(n=>(impFilter==='all'||n.category===impFilter) && (!impType || !n.scope || n.scope.type==='ALL' || n.scope.type===impType));
+  items = items.slice().sort((a,b)=> (impIsOpen(b)-impIsOpen(a)) || String(a.needBy||'9999').localeCompare(String(b.needBy||'9999')));
+  const total = items.length; if(!impShowAll && total>3) items = items.slice(0,3);
+  const card = n=>{
+    const cat = IMPACT_CATS[n.category] || IMPACT_CATS.other, res = !impIsOpen(n);
+    const stCls = res?'done':(n.status==='Awaiting response'?'wait':'open');
+    let due=''; if(n.needBy && !res){ const d=impDays(n.needBy); due = `<span class="${d<0?'due-over':(d<=5?'due-soon':'')}">Needed by <b>${impFmt(n.needBy)}</b> (${d<0?Math.abs(d)+' day'+(d<-1?'s':'')+' overdue':(d===0?'today':'in '+d+' day'+(d>1?'s':''))})</span>`; }
+    else if(n.needBy) due = `<span>Needed by <b>${impFmt(n.needBy)}</b></span>`;
+    return `<div class="imp-card${res?' resolved':''}" style="--ic:${cat.c};--ib:${cat.b}"><div class="bar"></div><div class="in">
+      <div class="imp-top"><span class="imp-pill">${impEsc(cat.label)}</span><span class="imp-st ${stCls}">${impEsc(n.status||'Open')}</span></div>
+      <div class="imp-title">${impEsc(n.title)}</div>
+      ${n.detail?`<p class="imp-detail">${impEsc(n.detail)}</p>`:''}
+      <div class="imp-meta"><span>Applies to <b>${impEsc(impScopeLabel(n))}</b></span>
+        ${n.waitingOn&&!res?`<span>Waiting on <b>${impEsc(n.waitingOn)}</b></span>`:''}
+        ${n.raised?`<span>Raised <b>${impFmt(n.raised)}</b></span>`:''}${due}
+        ${n.impactDays&&!res?`<span class="imp-days">Est. ship impact +${n.impactDays} days</span>`:''}
+        ${n.reference?`<span>Ref <b>${impEsc(n.reference)}</b></span>`:''}</div></div></div>`;
+  };
+  wrap.innerHTML = `<div class="cv-section-label">Order Notes</div>
+    <div class="imp-panel">
+      <p class="imp-intro">Notes on items that may affect planned ship dates. Where a step is waiting on a response, approval or decision, the party it is with is shown, along with the date it is needed by.</p>
+      <div class="imp-sum">
+        <div class="t"><b>${open.length}</b><span>Open notes</span></div>
+        <div class="t"><b>${awaiting}</b><span>Awaiting a response</span></div>
+        <div class="t"><b>${overdue}</b><span>Past needed-by date</span></div>
+        <div class="t"><b>${maxDays?'+'+maxDays+' d':'&mdash;'}</b><span>Largest est. ship impact</span></div>
+      </div>
+      <div class="imp-chips"><button class="imp-chip${impFilter==='all'?' active':''}" data-impf="all">All (${IMPACTS.length})</button>
+        ${cats.map(k=>`<button class="imp-chip${impFilter===k?' active':''}" data-impf="${k}">${IMPACT_CATS[k].label} (${IMPACTS.filter(n=>n.category===k).length})</button>`).join('')}
+        ${impType?`<button class="imp-chip active" data-impf-clear="1">${impType} only &times;</button>`:''}</div>
+      <div class="imp-list">${items.map(card).join('') || '<div class="imp-intro">No items match this filter.</div>'}</div>
+      ${total>3?`<button class="imp-more" id="impMore">${impShowAll?'Show fewer':'Show all '+total+' items'}</button>`:''}
+    </div>`;
+}
+document.addEventListener('click',(e)=>{
+  if(e.target.closest('#impMore')){ impShowAll=!impShowAll; cvRenderImpacts(); return; }
+  const c = e.target.closest('[data-impf]'); if(c){ impFilter=c.dataset.impf; cvRenderImpacts(); return; }
+  if(e.target.closest('[data-impf-clear]')){ impType=null; cvRenderImpacts(); return; }
+  const f = e.target.closest('[data-imp-type]'); if(f){ e.stopPropagation(); impType=f.dataset.impType; impFilter='all'; cvRenderImpacts(); document.getElementById('cvImpactWrap').scrollIntoView({behavior:'smooth',block:'start'}); }
+}, true);
+
+
+
+/* ---- Schedule watch: evidence-based. A unit counts when it is not shipped and the Planned Ship date shown in the unit list has passed (as of today). ---- */
+const WATCH_TODAY = '2026-10-21';
+function cvWatchUnits(t){
+  /* sample figures: units the demo counts as shipped (first N in the RAIL queue) are not flagged */
+  return CV_RECORDS.filter(r=>r.type===t && r.stage!=='Shipped' && !((CV_SERIAL[r.unit]||{}).seq<=(CV_KPIS.shipped[t]||0))).map(r=>{ const p=cvPlanned(r); return (p.d && !p.est && p.d<WATCH_TODAY) ? {rec:r, planned:p.d, late:Math.round((new Date(WATCH_TODAY+'T00:00:00')-new Date(p.d+'T00:00:00'))/86400000)} : null; }).filter(Boolean).sort((a,b)=>b.late-a.late || parseInt(a.rec.unit.split('-')[1])-parseInt(b.rec.unit.split('-')[1]));
+}
+function cvWatchSet(){ const set=new Set(); ['ICB','GCB','FCB'].forEach(t=>{ if(cvDrill.watch===t) cvWatchUnits(t).forEach(w=>set.add(w.rec.unit)); }); return set; }
+(function(){
+  const back=document.createElement('div'); back.className='wch-back'; back.id='wchBack'; back.innerHTML='<div class="wch" id="wchBox"></div>'; document.body.appendChild(back);
+  back.addEventListener('click',e=>{ if(e.target===back) back.classList.remove('open'); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') back.classList.remove('open'); });
+})();
+function cvOpenWatch(t){
+  const list = cvWatchUnits(t), box=document.getElementById('wchBox');
+  const notices = IMPACTS.filter(n=>impIsOpen(n) && list.some(w=>impMatches(n,w.rec)));
+  const maxLate = Math.max(0,...list.map(w=>w.late));
+  box.innerHTML = `<div class="wch-h"><div><h3>${t} &middot; Schedule details</h3><p>${list.length} unit${list.length>1?'s are':' is'} past the Planned Ship date shown in the unit list, as of ${impFmt(WATCH_TODAY)}${maxLate?` (up to ${maxLate} day${maxLate>1?'s':''})`:''}. Each unit below can be opened for its full progress timeline.</p></div><button class="wch-x" id="wchX">&times;</button></div>
+    <div class="wch-b">
+      ${notices.map(n=>{ const c=IMPACT_CATS[n.category]||IMPACT_CATS.other; return `<div class="wch-note"><b>${impEsc(c.label)} &middot; ${impEsc(n.title)}</b>${impEsc(n.detail||'')}<div style="margin-top:4px;color:var(--text-muted);font-size:12px;">${n.waitingOn?'Waiting on <b style="display:inline;color:var(--text)">'+impEsc(n.waitingOn)+'</b>':''}${n.needBy?(n.waitingOn?' &middot; ':'')+'Needed by '+impFmt(n.needBy):''}${n.reference?' &middot; Ref '+impEsc(n.reference):''}</div></div>`; }).join('')}
+      <table><thead><tr><th>Unit</th><th>Status</th><th>Planned ship</th><th>Past planned date</th></tr></thead><tbody>
+      ${list.map(w=>`<tr class="wu" data-wunit="${w.rec.unit}"><td style="font-family:'SFMono-Regular',Consolas,monospace;font-weight:700;">${w.rec.unit}</td><td>${cvStatus(w.rec)}</td><td>${impFmt(w.planned)}</td><td class="wch-late">${w.late} day${w.late>1?'s':''}</td></tr>`).join('')}
+      </tbody></table>
+      <button class="wch-go" id="wchGo">View these units in the list</button>
+    </div>`;
+  document.getElementById('wchBack').classList.add('open');
+  document.getElementById('wchX').onclick=()=>document.getElementById('wchBack').classList.remove('open');
+  document.getElementById('wchGo').onclick=()=>{ document.getElementById('wchBack').classList.remove('open'); cvDrill.watch=t; cvDrill.type=null; cvDrill.kpi=null; cvDrill.week=null; cvRenderFleet(); cvRenderTrend(); cvRenderChips(); cvRenderTable(); document.getElementById('cvSearchBox').scrollIntoView({behavior:'smooth',block:'center'}); };
+  box.querySelectorAll('[data-wunit]').forEach(tr=>tr.onclick=()=>{ document.getElementById('wchBack').classList.remove('open'); openUnit(tr.dataset.wunit, list.map(w=>w.rec.unit), 'cv'); });
+}
+document.addEventListener('click',e=>{ const w=e.target.closest('[data-watch-type]'); if(w){ e.stopPropagation(); cvOpenWatch(w.dataset.watchType); } }, true);
+
 const TYPE_COLOR_HEX = {ICB:'#2F5FA3', GCB:'#7C3AED', FCB:'#C1560C'};
 const STAGE_ORDER = ['Not Started','In the Yard','In Production','Internal Test Ready','CAT Ready','CAT Done — Awaiting Ship','Shipped'];
 const STAGE_COLOR = {
@@ -627,7 +857,7 @@ function cvRenderFleet(){
     const pipeline = CV_KPIS.inPipeline[t];
     const pct = Math.round(shipped/contracted*100);
     // on-schedule heuristic for customer messaging: no units of this type carry an internal flag
-    const hasDelayed = CV_RECORDS.some(r=>r.type===t && r.flag);
+    const wl = cvWatchUnits(t), hasDelayed = wl.length>0;
     const card = document.createElement('div');
     card.className='cv-fleet-card' + (cvDrill.type===t ? ' active' : '');
     const rad = 34, c = 2*Math.PI*rad;
@@ -645,10 +875,11 @@ function cvRenderFleet(){
         <div class="cv-ring-stats">
           <div class="big">${shipped} / ${contracted}</div>
           <div class="small">shipped &middot; ${pipeline} in progress</div>
-          <div class="cv-status-pill ${hasDelayed?'watch':'ontrack'}"><span class="dot"></span>${hasDelayed?'Minor schedule watch':'On schedule'}</div>
+          <div class="cv-status-pill ${hasDelayed?(Math.max(...wl.map(w=>w.late))>5?'late':'watch')+' click':'ontrack'}" ${hasDelayed?`data-watch-type="${t}" title="Click to see which units and why"`:''}><span class="dot"></span>${hasDelayed?`${Math.max(...wl.map(w=>w.late))>5?'Behind plan':'Schedule watch'} &middot; ${wl.length} unit${wl.length>1?'s':''} &rsaquo;`:'On schedule'}</div>
         </div>
       </div>
 
+      ${impFleetBadge(t)}
       <div class="schedule-link" data-sched-type="${t}">View full production schedule <span class="arrow">&rarr;</span></div>`;
     card.addEventListener('click', (e)=>{
       if(e.target.closest('.schedule-link')) return;
@@ -663,6 +894,7 @@ function cvRenderFleet(){
   });
 }
 cvRenderFleet();
+cvRenderImpacts();
 
 function cvFmtWeek(w){ const d = new Date(w+'T00:00:00'); return (d.getMonth()+1)+'/'+d.getDate(); }
 const CV_TREND = (()=>{
@@ -736,6 +968,7 @@ Object.values(CV_STAGE_LABEL).filter((v,i,a)=>a.indexOf(v)===i).forEach(s=>{
 
 function cvMatchesDrill(r){
   if(cvDrill.type && r.type!==cvDrill.type) return false;
+  if(cvDrill.watch && !cvWatchSet().has(r.unit)) return false;
   if(cvDrill.week){
     if(!r.shipped) return false;
     const d = new Date(r.shipped+'T00:00:00');
@@ -761,6 +994,7 @@ function cvRenderChips(){
   chipRow.innerHTML='';
   const defs=[];
   if(cvDrill.type) defs.push(['type', cvDrill.type]);
+  if(cvDrill.watch) defs.push(['watch', cvDrill.watch+' \u00b7 past planned ship']);
   if(cvDrill.week) defs.push(['week','Week of '+cvFmtWeek(cvDrill.week)]);
   if(cvDrill.kpi) defs.push(['kpi', cvKpiDefs.find(k=>k.key===cvDrill.kpi).lbl]);
   defs.forEach(([type,label])=>{
@@ -778,7 +1012,7 @@ function cvRenderChips(){
     const clr=document.createElement('span');
     clr.className='cv-clear-all'; clr.textContent='Clear all';
     clr.addEventListener('click', ()=>{
-      cvDrill={kpi:null,type:null,week:null};
+      cvDrill={kpi:null,type:null,week:null,watch:null};
       document.querySelectorAll('.cv-kpi').forEach(e=>e.classList.remove('active'));
       cvRenderFleet(); cvRenderTrend(); cvRenderChips(); cvRenderTable();
     });
@@ -857,6 +1091,7 @@ function openUnit(unit, list, mode){
   let body = '';
   if(iv && r.flag) body += `<div class="uflag">⚠ ${uEsc(r.flag)}<div style="font-weight:500;font-size:11.5px;margin-top:2px">Not shown on the customer portal.</div></div>`;
   body += `<div class="ubanner">${badge}<div class="nx">${uNextStep(r, mode)}${iv?`<div style="margin-top:4px;font-size:11.5px;color:var(--text-muted)">Client portal shows: <b>${CV_STAGE_LABEL[r.stage]}</b></div>`:''}</div></div>`;
+  body += impUnitPanel(r);
   body += `<div class="usec" style="margin-top:0">Progress</div>${uTimeline(r, mode)}`;
   body += `<div class="usec">Details</div><div class="ucards">
     <div class="ucd"><h4>Unit</h4>${uKv('Unit',uEsc(r.unit))}${uKv('Type',r.type)}${uKv('Job',uEsc(r.job))}${x.batch?uKv('Batch',uEsc(x.batch)):''}</div>
@@ -905,7 +1140,7 @@ function cvRenderTable(){
       <td style="font-family:'SFMono-Regular',Consolas,monospace;font-size:11.5px;">${(CV_SERIAL[r.unit]||{}).revSerial||'—'}</td>
       <td style="font-size:12px;">${(CV_SERIAL[r.unit]||{}).assetTag||'—'}</td>
       <td><span class="cv-type-pill" style="background:${TYPE_COLOR_HEX[r.type]}">${r.type}</span></td>
-      <td><span class="cv-badge ${cvBadgeClass(r.stage)}">${cvStatus(r)}</span></td>
+      <td><span class="cv-badge ${cvBadgeClass(r.stage)}">${cvStatus(r)}</span>${impFlag(r)}</td>
       <td${cvPlanned(r).est?' style="color:var(--text-faint);" title="Scheduled CAT date; ship date to be confirmed"':''}>${cvPlanned(r).d?fmtD(cvPlanned(r).d):(r.shipped?'—':'TBD')}</td>
       <td>${fmtD(r.shipped)}</td>`;
     tr.addEventListener('click', ()=> openUnit(r.unit, rows.map(z=>z.unit), 'cv'));
