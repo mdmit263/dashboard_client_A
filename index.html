@@ -859,7 +859,7 @@ function cvRenderFleet(){
     const rad = 34, c = 2*Math.PI*rad;
     const dash = c*(pct/100);
     card.innerHTML = `
-      <div class="cft"><b>${t}-35kV</b><span>${CV_JOB_MAP[t]}</span></div>
+      <div class="cft"><b>${t}-${t==='GCB'?'15kV':'35kV'}</b><span>${CV_JOB_MAP[t]}</span></div>
       <div class="cfsub">${contracted} units on order</div>
       <div class="cv-ring-row">
         <svg class="cv-ring" width="84" height="84" viewBox="0 0 84 84">
