@@ -383,6 +383,7 @@
   .wch-late{font-weight:800;color:#B45309;}
   .wch-note{border:1px solid #F5D9A5;background:#FFFBEB;border-radius:10px;padding:10px 12px;margin:10px 0;font-size:12.5px;line-height:1.5;}
   .wch-note b{color:var(--rev-navy);display:block;}
+  .wch-vendor{margin:14px 0 4px;padding:10px 14px;border-radius:10px;background:#FEF3C7;color:#92400E;font-size:13px;font-weight:700;border:1px solid #FDE68A;}
   .wch-go{margin-top:14px;display:inline-block;background:var(--rev-navy);color:#fff;border:0;border-radius:999px;padding:8px 18px;font-weight:800;font-size:12.5px;cursor:pointer;font-family:inherit;}
 
   .cv-status-pill.click{cursor:pointer;} .cv-status-pill.click:hover{filter:brightness(.96);box-shadow:0 0 0 2px rgba(180,83,9,.18);}
@@ -726,6 +727,8 @@ function cvWatchSet(){ const set=new Set(); ['ICB','GCB','FCB'].forEach(t=>{ if(
   back.addEventListener('click',e=>{ if(e.target===back) back.classList.remove('open'); });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') back.classList.remove('open'); });
 })();
+/* Note shown at the end of the schedule popup and on the unit/site panel for units that are past planned ship. Edit the text here. */
+const WATCH_NOTE = 'Note: delay due to vendor';
 function cvOpenWatch(t){
   const list = cvWatchUnits(t), box=document.getElementById('wchBox');
   const notices = IMPACTS.filter(n=>impIsOpen(n) && list.some(w=>impMatches(n,w.rec)));
@@ -736,6 +739,7 @@ function cvOpenWatch(t){
       <table><thead><tr><th>Unit</th><th>Status</th><th>Planned ship</th><th>Past planned date</th></tr></thead><tbody>
       ${list.map(w=>`<tr class="wu" data-wunit="${w.rec.unit}"><td style="font-family:'SFMono-Regular',Consolas,monospace;font-weight:700;">${w.rec.unit}</td><td>${cvStatus(w.rec)}</td><td>${impFmt(w.planned)}</td><td class="wch-late">${w.late} day${w.late>1?'s':''}</td></tr>`).join('')}
       </tbody></table>
+      <div class="wch-vendor">${WATCH_NOTE}</div>
       <button class="wch-go" id="wchGo">View these units in the list</button>
     </div>`;
   document.getElementById('wchBack').classList.add('open');
@@ -1101,6 +1105,7 @@ function openUnit(unit, list, mode){
       <div>${uKv('CAT ready',uFmt(r.catReady))}${uKv('CAT done',uFmt(r.catDone))}${uKv('Tracker planned ship',uFmt(r.plannedShip))}</div></div></div>`;
   }
   body += `</div>`;
+  if(!iv && ['ICB','GCB','FCB'].some(t=>cvWatchUnits(t).some(w=>w.rec.unit===unit))) body += `<div class="wch-vendor" style="margin-top:14px">${WATCH_NOTE}</div>`;
   if(iv && x.note) body += `<div class="usec">RAIL note</div><div class="unbox">${uEsc(x.note)}</div>`;
   const many = US.list.length>1;
   USHEET.innerHTML = `<div class="ush"><div><h3>${uEsc(r.unit)}</h3><div class="uss">${r.type} · ${uEsc(r.job)}${iv?' · <b style="color:#92400E">Internal</b>':''}</div></div>
